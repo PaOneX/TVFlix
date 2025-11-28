@@ -1,206 +1,255 @@
  * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+ }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #0a0a0a;
-            color: #fff;
-            overflow-x: hidden;
-        }
+ body {
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     background: #0a0a0a;
+     color: #fff;
+     overflow-x: hidden;
+ }
 
-        .navbar-custom {
-            background: rgba(10, 10, 10, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1rem 3rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+ .navbar-custom {
+     background: rgba(10, 10, 10, 0.95);
+     backdrop-filter: blur(2px);
+     padding: 1rem 3rem;
+     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+     position: sticky;
+     top: 0;
+     z-index: 1000;
+ }
 
-        .logo {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            padding: 0.8rem 1.5rem;
-            border-radius: 8px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-        }
+ .logo {
+     background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+     padding: 0.8rem 1.5rem;
+     border-radius: 8px;
+     font-size: 1.5rem;
+     font-weight: bold;
+     letter-spacing: 2px;
+     box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+ }
 
-        .type-select {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            border: none;
-            padding: 0.6rem 1.5rem;
-            border-radius: 6px;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            outline: none;
-            min-width: 150px;
-        }
+ .type-select {
+     background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+     border: none;
+     padding: 0.6rem 1.5rem;
+     border-radius: 6px;
+     color: white;
+     font-weight: 600;
+     cursor: pointer;
+     outline: none;
+     min-width: 150px;
+ }
 
-        .type-select option {
-            background: #1a1a1a;
-            color: white;
-            padding: 0.5rem;
-        }
+ .type-select option {
+     background: #1a1a1a;
+     color: white;
+     padding: 0.5rem;
+ }
 
-        .search-input {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            outline: none;
-            transition: all 0.3s ease;
-        }
+ .search-input {
+     background: rgba(255, 255, 255, 0.1);
+     border: 1px solid rgba(255, 255, 255, 0.2);
+     color: white;
+     padding: 0.8rem 1.5rem;
+     border-radius: 25px;
+     outline: none;
+     transition: all 0.3s ease;
+ }
 
-        .search-input::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
+ .search-input::placeholder {
+     color: rgba(255, 255, 255, 0.5);
+ }
 
-        .search-input:focus {
-            background: rgba(255, 255, 255, 0.15);
-            border-color: #ff6b35;
-            box-shadow: 0 0 20px rgba(255, 107, 53, 0.2);
-        }
+ .search-input:focus {
+     background: rgba(255, 255, 255, 0.15);
+     border-color: #ff6b35;
+     box-shadow: 0 0 20px rgba(255, 107, 53, 0.2);
+ }
 
-        .nav-link-custom {
-            color: white;
-            text-decoration: none;
-            padding: 0.6rem 1.2rem;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-            font-weight: 500;
-        }
+ .nav-link-custom {
+     color: white;
+     text-decoration: none;
+     padding: 0.6rem 1.2rem;
+     border-radius: 6px;
+     transition: all 0.3s ease;
+     font-weight: 500;
+ }
 
-        .nav-link-custom:hover {
-            background: rgba(255, 107, 53, 0.2);
-            color: #ff6b35;
-        }
+ .nav-link-custom:hover {
+     background: rgba(255, 107, 53, 0.2);
+     color: #ff6b35;
+ }
 
-        .hero-section {
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
-            padding: 3rem 0;
-            min-height: 85vh;
-        }
+ .hero-section {
+     background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+     padding: 3rem 3rem 5rem 3rem;
+     min-height: 85vh;
+ }
 
-        .carousel-item {
-            height: 70vh;
-        }
+ .carousel-item {
+     height: 70vh;
+ }
 
-        .movie-card {
-            position: relative;
-            height: 100%;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
-            transition: all 0.4s ease;
-        }
+  .carousel-inner {
+     height: 70vh;
+ }
 
-        .movie-card:hover {
-            transform: scale(1.02);
-            box-shadow: 0 15px 50px rgba(255, 107, 53, 0.4);
-        }
+ .carousel-item .row {
+     height: 100%;
+     align-items: stretch;
+ }
 
-        .movie-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+ .carousel-item .col-md-4,
+ .carousel-item .col-12,
+ .carousel-item [class*="col-"] {
+     height: 100%;
+     display: flex;
+     align-items: stretch;
+ }
 
-        .movie-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 100%);
-            padding: 2.5rem;
-        }
+ .movie-card {
+     position: relative;
+     height: 100%;
+     border-radius: 15px;
+     overflow: hidden;
+     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+     transition: all 0.4s ease;
+     display: block;
+ }
 
-        .movie-title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
+ .movie-card:hover {
+     transform: scale(1.02);
+     box-shadow: 0 15px 50px rgba(255, 107, 53, 0.4);
+ }
 
-        .movie-info {
-            margin-bottom: 1.5rem;
-        }
+ .movie-image {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+ }
 
-        .release-badge {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            font-weight: 600;
-            display: inline-block;
-            margin-right: 1rem;
-        }
+ .movie-overlay {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     right: 0;
+     background: linear-gradient(to top, rgba(190, 93, 2, 0.678) 0%, transparent 80%);
+     padding: 20px;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-end;
+     gap: 0.6rem;
+ }
 
-        .platform-text {
-            color: rgba(255, 255, 255, 0.8);
-            font-size: 1.1rem;
-        }
+ .movie-title {
+     font-size: clamp(1.1rem, 2.6vw + 1rem, 2.5rem);
+     font-weight: bold;
+     margin-bottom: 0.6rem;
+     color: white;
+     text-shadow: 2px 2px 4px rgb(3, 0, 0);
+     line-height: 1.05;
+ }
 
-        .discover-btn {
-            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
-            border: none;
-            padding: 1rem 2.5rem;
-            border-radius: 25px;
-            color: white;
-            font-weight: 600;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
-        }
+ .movie-info {
+     margin-bottom: 1.5rem;
+ }
 
-        .discover-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(255, 107, 53, 0.6);
-        }
+ .release-badge {
+     color: white;
+     font-weight: bolder;
+     background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+     padding: 0.5rem 1rem;
+     border-radius: 5px;
+     font-weight: 600;
+     display: inline-block;
+     margin-right: 1rem;
+ }
+
+ .platform-text {
+     color: rgba(255, 255, 255, 0.986);
+     font-size: 1.4rem;
+        font-weight: 900;
+ }
+
+ .discover-btn {
+     background: linear-gradient(135deg, #ff4603 0%, #ff8b07 100%);
+     border: none;
+     padding: 0.7rem 1.8rem;
+     border-radius: 25px;
+     color: white;
+     font-weight: 600;
+     font-size: 1rem;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
+     align-self: center;
+     /* keep button aligned left within overlay */
+ }
+
+ /* Smaller button when screen is small */
+ @media (max-width: 576px) {
+     .discover-btn {
+         padding: 0.55rem 1rem;
+         font-size: 0.95rem;
+     }
+ }
+
+ .discover-btn:hover {
+     transform: translateY(-3px);
+     box-shadow: 0 8px 30px rgba(255, 107, 53, 0.6);
+ }
 
 
-        .carousel-control-prev {
-            left: 2rem;
-			margin-left: -6rem;
-        }
-		
-        .carousel-control-next {
-			right: 2rem;
-			margin-right: -6rem;
-        }
+ .carousel-control-prev {
+     left: 2rem;
+     margin-left: -6rem;
+ }
 
-        .carousel-indicators button {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            border: none;
-            margin: 0 5px;
-        }
+ .carousel-control-next {
+     right: 2rem;
+     margin-right: -6rem;
+ }
 
-        .carousel-indicators button.active {
-            background: #ff6b35;
-            width: 45px;
-            border-radius: 6px;
-        }
+ .carousel-indicators button {
+     width: 12px;
+     height: 12px;
+     border-radius: 50%;
+     background: rgba(255, 255, 255, 0.3);
+     border: none;
+     margin: 0 5px;
+ }
 
-        @media (max-width: 768px) {
-            .navbar-custom {
-                padding: 1rem;
-            }
+ .carousel-indicators button.active {
+     background: #ff6b35;
+     width: 45px;
+     border-radius: 6px;
+ }
 
-            .movie-title {
-                font-size: 1.8rem;
-            }
+ @media (max-width: 768px) {
+     .navbar-custom {
+         padding: 1rem;
+     }
 
-            .carousel-item {
-                height: 60vh;
-            }
-        }
+     .movie-title {
+         font-size: 1.8rem;
+     }
+
+     .carousel-item {
+         height: 60vh;
+     }
+ }
+
+    .results-section {
+        padding: 3rem 3rem 5rem 3rem;
+        min-height: 50vh;
+    }
+    .results-section .movie-card {
+        height: auto;
+    }   
+    .results-section .movie-image {
+        height: auto;
+    }
+    

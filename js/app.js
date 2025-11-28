@@ -1,8 +1,8 @@
-console.log("Hello, TVFlix!");
 
 
 function searchMovie(){
-
+  
+  console.log("Hello, TVFlix!");
 
     let txtMovie = document.getElementById("txtMovie").value;
 
