@@ -1,17 +1,22 @@
-let option = document.getElementById("option").value;
-// cons
+// console.log(option)
 
 function searchMovie(){
+  const option = document.getElementById("option").value;
+  console.log(option);
   
-  console.log("Hello, TVFlix!");
+  
+  // console.log("Hello, TVFlix!");
 
-    let txtMovie = document.getElementById("txtMovie").value;
+    const txtMovie = document.getElementById("txtMovie").value;
 
 const requestOptions = {
   method: "GET",
   redirect: "follow"
 };
 
+  switch (option) {
+    case 'title':
+      
 fetch(`http://www.omdbapi.com/?t=${txtMovie}&apikey=afa85712`, requestOptions)
   .then((response) => response.json())
   .then((result) => {
@@ -26,4 +31,10 @@ fetch(`http://www.omdbapi.com/?t=${txtMovie}&apikey=afa85712`, requestOptions)
 
   })
   .catch((error) => console.error(error));
+      break;
+  default:
+    console.log("Hi");
+      break;
+  }
+
 }
