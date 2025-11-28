@@ -5,76 +5,253 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TVFlix</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/bootstrap.css" />
   </head>
   <body>
-    <!-- coursel -->
-    <div id="carouselExampleCaptions" class="carousel slide">
-      <div class="carousel-indicators">
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="0"
-          class="active"
-          aria-current="true"
-          aria-label="Slide 1"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="1"
-          aria-label="Slide 2"
-        ></button>
-        <button
-          type="button"
-          data-bs-target="#carouselExampleCaptions"
-          data-bs-slide-to="2"
-          aria-label="Slide 3"
-        ></button>
-      </div>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="img/1.jpg" class="d-block w-100" alt="..." />
-          <div class="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
+    <nav class="navbar-custom">
+      <div class="container-fluid">
+        <div class="row w-100 align-items-center">
+          <div class="col-auto">
+            <div class="logo">LOGO</div>
           </div>
-        </div>
-        <div class="carousel-item">
-          <img src="img/2.jpg" class="d-block w-100" alt="..." />
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
+          <div class="col-auto">
+            <select class="type-select">
+              <option value="">Search By</option>
+              <option value="title">Movie Title</option>
+              <option value="imdb">IMDb ID</option>
+              <option value="actor">Actor Name</option>
+              <option value="director">Director Name</option>
+              <option value="genre">Genre</option>
+              <option value="year">Release Year</option>
+            </select>
           </div>
-        </div>
-        <div class="carousel-item">
-          <img src="img/3.jpg" class="d-block w-100" alt="..." />
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
+          <div class="col">
+            <input
+              type="text"
+              class="form-control search-input"
+              placeholder="Search movies, actors, genres..."
+            />
+          </div>
+          <div class="col-auto">
+            <a href="#" class="nav-link-custom">Watch List</a>
+          </div>
+          <div class="col-auto">
+            <a href="#" class="nav-link-custom">Account</a>
           </div>
         </div>
       </div>
-      <button
-        class="carousel-control-prev"
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="prev"
-      >
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button
-        class="carousel-control-next"
-        type="button"
-        data-bs-target="#carouselExampleCaptions"
-        data-bs-slide="next"
-      >
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-    <!-- coursel -->
+    </nav>
+    <section class="hero-section">
+      <div class="container-fluid">
+        <div id="movieCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#movieCarousel"
+              data-bs-slide-to="0"
+              class="active"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#movieCarousel"
+              data-bs-slide-to="1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#movieCarousel"
+              data-bs-slide-to="2"
+            ></button>
+          </div>
+
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row g-4 px-5">
+                <div class="col-md-4">
+                  <div class="movie-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=1000&fit=crop"
+                      alt="Movie 1"
+                      class="movie-image"
+                    />
+                    <div class="movie-overlay">
+                      <h2 class="movie-title">It's Florida, Man</h2>
+                      <div class="movie-info">
+                        <span class="release-badge">NOV 28</span>
+                        <span class="platform-text">HBO max</span>
+                      </div>
+                      <button class="discover-btn">Discover a Movie</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="movie-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&h=1000&fit=crop"
+                      alt="Movie 2"
+                      class="movie-image"
+                    />
+                    <div class="movie-overlay">
+                      <h2 class="movie-title">Family Reunion</h2>
+                      <div class="movie-info">
+                        <span class="release-badge">DEC 15</span>
+                        <span class="platform-text">Peacock</span>
+                      </div>
+                      <button class="discover-btn">Discover a Movie</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="movie-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=800&h=1000&fit=crop"
+                      alt="Movie 3"
+                      class="movie-image"
+                    />
+                    <div class="movie-overlay">
+                      <h2 class="movie-title">Jingle Bell Heist</h2>
+                      <div class="movie-info">
+                        <span class="release-badge">DEC 22</span>
+                        <span class="platform-text">Netflix</span>
+                      </div>
+                      <button class="discover-btn">Discover a Movie</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="row g-4 px-5">
+                <div class="col-md-4">
+                  <div class="movie-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&h=1000&fit=crop"
+                      alt="Movie 4"
+                      class="movie-image"
+                    />
+                    <div class="movie-overlay">
+                      <h2 class="movie-title">Night Hunter</h2>
+                      <div class="movie-info">
+                        <span class="release-badge">JAN 05</span>
+                        <span class="platform-text">Prime Video</span>
+                      </div>
+                      <button class="discover-btn">Discover a Movie</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="movie-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&h=1000&fit=crop"
+                      alt="Movie 5"
+                      class="movie-image"
+                    />
+                    <div class="movie-overlay">
+                      <h2 class="movie-title">Cinema Dreams</h2>
+                      <div class="movie-info">
+                        <span class="release-badge">JAN 12</span>
+                        <span class="platform-text">Disney+</span>
+                      </div>
+                      <button class="discover-btn">Discover a Movie</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="movie-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1594908900066-3f47337549d8?w=800&h=1000&fit=crop"
+                      alt="Movie 6"
+                      class="movie-image"
+                    />
+                    <div class="movie-overlay">
+                      <h2 class="movie-title">Starlight Journey</h2>
+                      <div class="movie-info">
+                        <span class="release-badge">JAN 19</span>
+                        <span class="platform-text">Hulu</span>
+                      </div>
+                      <button class="discover-btn">Discover a Movie</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="row g-4 px-5">
+                <div class="col-md-4">
+                  <div class="movie-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&h=1000&fit=crop"
+                      alt="Movie 7"
+                      class="movie-image"
+                    />
+                    <div class="movie-overlay">
+                      <h2 class="movie-title">Desert Storm</h2>
+                      <div class="movie-info">
+                        <span class="release-badge">JAN 26</span>
+                        <span class="platform-text">Apple TV+</span>
+                      </div>
+                      <button class="discover-btn">Discover a Movie</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="movie-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=800&h=1000&fit=crop"
+                      alt="Movie 8"
+                      class="movie-image"
+                    />
+                    <div class="movie-overlay">
+                      <h2 class="movie-title">Ocean's Mystery</h2>
+                      <div class="movie-info">
+                        <span class="release-badge">FEB 02</span>
+                        <span class="platform-text">Paramount+</span>
+                      </div>
+                      <button class="discover-btn">Discover a Movie</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="movie-card">
+                    <img
+                      src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&h=1000&fit=crop"
+                      alt="Movie 9"
+                      class="movie-image"
+                    />
+                    <div class="movie-overlay">
+                      <h2 class="movie-title">Urban Legends</h2>
+                      <div class="movie-info">
+                        <span class="release-badge">FEB 09</span>
+                        <span class="platform-text">Max</span>
+                      </div>
+                      <button class="discover-btn">Discover a Movie</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#movieCarousel"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#movieCarousel"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+    </section>
 
     <input type="text" id="txtMovie" />
     <button onclick="searchMovie();">Search</button>
