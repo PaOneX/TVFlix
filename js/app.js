@@ -36,6 +36,8 @@ fetch(`http://www.omdbapi.com/?t=${txtMovie}&y=${txtyear}&apikey=afa85712`, requ
       document.getElementById("txtRating").innerText = result.Rated;
       document.getElementById("txtDate").innerText = result.Released;
       document.getElementById("txtRuntime").innerText = result.Runtime;
+      document.getElementById("txtImb").innerText = result.imdbRating;
+      document.getElementById("txtTomato").innerText = result.Ratings[1].Value;
       document.getElementById("txtImg").innerHTML = ` <img src="${result.Poster}" class="card-img-top" alt="...">`;
     })
 
