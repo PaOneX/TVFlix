@@ -253,3 +253,98 @@
         height: auto;
     }
     
+    .section-header {
+            background: linear-gradient(90deg, #4a4a2a 0%, #6b6b3a 100%);
+            color: #FFD700;
+            text-align: center;
+            padding: 15px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 24px;
+            text-transform: uppercase;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .movie-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.4);
+        }
+
+        .movie-poster {
+            position: relative;
+            width: 100%;
+            padding-top: 150%;
+            background: #e0e0e0;
+            overflow: hidden;
+        }
+
+        .movie-poster img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .rank-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: #dc3545;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            z-index: 10;
+        }
+
+        .movie-info {
+            padding: 20px;
+        }
+
+        .movie-info p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .movie-info strong {
+            color: #000;
+            font-weight: 600;
+        }
+
+        .show-more-btn {
+            background: #00a8e8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            width: 100%;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .show-more-btn:hover {
+            background: #0087c0;
+        }
+
+        .container-custom {
+            max-width: 1400px;
+        }
