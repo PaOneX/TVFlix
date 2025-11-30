@@ -155,6 +155,8 @@
 
  .movie-info {
      margin-bottom: 1.5rem;
+     background-color: rgb(255, 184, 91);
+     padding: 10px;
  }
 
  .release-badge {
@@ -254,104 +256,330 @@
     }
     
     .section-header {
-            background: linear-gradient(90deg, #4a4a2a 0%, #6b6b3a 100%);
-            color: #FFD700;
-            text-align: center;
-            padding: 15px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 24px;
-            text-transform: uppercase;
-            box-shadow: 0 4px 6px rgba(255, 116, 3, 0.568);
-        }
+        background: linear-gradient(90deg, #ff6b35 0%, #f7931e 100%);
+        color: white;
+        text-align: center;
+        padding: 1.25rem 2rem;
+        margin-bottom: 2.5rem;
+        border-radius: 12px;
+        font-weight: 700;
+        font-size: 28px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        box-shadow: 0 8px 25px rgba(255, 107, 53, 0.35);
+        position: relative;
+        overflow: hidden;
+    }
 
-        .movie-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 16px rgba(245, 91, 1, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-        }
+    .section-header::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        animation: shimmer 3s infinite;
+    }
 
-        .movie-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(248, 120, 1, 0.4);
-        }
+    @keyframes shimmer {
+        0% { left: -100%; }
+        50% { left: 100%; }
+        100% { left: 100%; }
+    }
 
-        .movie-poster {
-            position: relative;
-            width: 90%;
-            padding-top: 150%;
-            background: #e0e0e0;
-            overflow: hidden;
-        }
+    /* Featured cards in "Feature Today" section - Modern Glass Morphism Design */
+    #featuresRow .movie-card {
+        background: rgba(15, 15, 15, 0.6);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 107, 53, 0.15);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        height: 420px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
 
-        .imgDiv{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    #featuresRow .movie-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(247, 147, 30, 0.05) 100%);
+        pointer-events: none;
+        z-index: 1;
+    }
 
-        .movie-poster img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+    #featuresRow .movie-card:hover {
+        transform: translateY(-12px) scale(1.04);
+        box-shadow: 0 20px 50px rgba(255, 107, 53, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 107, 53, 0.35);
+        background: rgba(15, 15, 15, 0.8);
+    }
 
-        .rank-badge {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: #dc3545;
-            color: white;
-            width: 35px;
-            height: 35px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 18px;
-            z-index: 10;
-        }
+    #featuresRow .movie-image {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        position: relative;
+        z-index: 2;
+    }
 
-        .movie-info {
-            padding: 20px;
-        }
+    #featuresRow .movie-card:hover .movie-image {
+        transform: scale(1.1) rotate(0.5deg);
+    }
 
-        .movie-info p {
-            margin: 5px 0;
-            font-size: 14px;
-            color: #333;
-        }
+    #featuresRow .movie-overlay {
+        background: linear-gradient(to top, rgba(10, 10, 10, 0.98) 0%, rgba(10, 10, 10, 0.7) 40%, transparent 100%);
+        padding: 16px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        flex: 1;
+        position: relative;
+        z-index: 2;
+    }
 
-        .movie-info strong {
-            color: #000;
-            font-weight: 600;
-        }
+    #featuresRow .movie-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+        line-height: 1.25;
+        margin-bottom: 0.4rem;
+        letter-spacing: 0.3px;
+    }
 
-        
-        .show-more-btn {
-            background: #00a8e8;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 6px;
-            width: 100%;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
+    #featuresRow .release-badge {
+        background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        color: white;
+        padding: 0.4rem 0.9rem;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 0.8rem;
+        display: inline-block;
+        width: fit-content;
+        box-shadow: 0 4px 12px rgba(255, 107, 53, 0.25);
+        letter-spacing: 0.5px;
+    }
 
-        .show-more-btn:hover {
-            background: #0087c0;
-        }
+    #featuresRow .discover-btn {
+        background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        border: none;
+        padding: 0.6rem 1.3rem;
+        border-radius: 22px;
+        color: white;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        box-shadow: 0 5px 18px rgba(255, 107, 53, 0.35);
+        align-self: start;
+        width: fit-content;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
 
-        .container-custom {
-            max-width: 1400px;
-        }
+    #featuresRow .discover-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 8px 28px rgba(255, 107, 53, 0.6);
+    }
+
+    /* Results section card styling */
+    .results-section .card {
+        background: rgba(26, 26, 26, 0.9);
+        border: 1px solid rgba(255, 107, 53, 0.2);
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        transition: all 0.3s ease;
+    }
+
+    .results-section .card:hover {
+        border-color: rgba(255, 107, 53, 0.5);
+        box-shadow: 0 12px 35px rgba(255, 107, 53, 0.3);
+        transform: translateY(-5px);
+    }
+
+    .results-section .card-img-top {
+        height: 300px;
+        object-fit: cover;
+        border-bottom: 2px solid rgba(255, 107, 53, 0.2);
+    }
+
+    .results-section .card-body {
+        padding: 1.5rem;
+    }
+
+    .results-section .card-title {
+        color: #ff6b35;
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .results-section .card-text {
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    .results-section .btn {
+        background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        border: none;
+        color: white;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border-radius: 8px;
+    }
+
+    .results-section .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+    }
+
+    /* Show more button styling */
+    .show-more-btn {
+        background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 20px;
+        width: auto;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        font-size: 0.95rem;
+        box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+    }
+
+    .show-more-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 25px rgba(255, 107, 53, 0.5);
+    }
+
+    .container-custom {
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    /* Top Movies and Coming Soon sections - Modern Glass Morphism Design */
+    #topMoviesRow .movie-card,
+    #upComingRow .movie-card {
+        background: rgba(15, 15, 15, 0.6);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 107, 53, 0.15);
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        height: 420px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    #topMoviesRow .movie-card::before,
+    #upComingRow .movie-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, rgba(255, 107, 53, 0.05) 0%, rgba(247, 147, 30, 0.05) 100%);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    #topMoviesRow .movie-card:hover,
+    #upComingRow .movie-card:hover {
+        transform: translateY(-12px) scale(1.04);
+        box-shadow: 0 20px 50px rgba(255, 107, 53, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 107, 53, 0.35);
+        background: rgba(15, 15, 15, 0.8);
+    }
+
+    #topMoviesRow .movie-image,
+    #upComingRow .movie-image {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        position: relative;
+        z-index: 2;
+    }
+
+    #topMoviesRow .movie-card:hover .movie-image,
+    #upComingRow .movie-card:hover .movie-image {
+        transform: scale(1.1) rotate(0.5deg);
+    }
+
+    #topMoviesRow .movie-overlay,
+    #upComingRow .movie-overlay {
+        background: linear-gradient(to top, rgba(10, 10, 10, 0.98) 0%, rgba(10, 10, 10, 0.7) 40%, transparent 100%);
+        padding: 16px 14px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 0.5rem;
+        flex: 1;
+        position: relative;
+        z-index: 2;
+    }
+
+    #topMoviesRow .movie-title,
+    #upComingRow .movie-title {
+        font-size: 1.15rem;
+        font-weight: 700;
+        color: #fff;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+        line-height: 1.25;
+        margin-bottom: 0.4rem;
+        letter-spacing: 0.3px;
+    }
+
+    #topMoviesRow .release-badge,
+    #upComingRow .release-badge {
+        background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        color: white;
+        padding: 0.4rem 0.9rem;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 0.8rem;
+        display: inline-block;
+        width: fit-content;
+        box-shadow: 0 4px 12px rgba(255, 107, 53, 0.25);
+        letter-spacing: 0.5px;
+    }
+
+    #topMoviesRow .discover-btn,
+    #upComingRow .discover-btn {
+        background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+        border: none;
+        padding: 0.6rem 1.3rem;
+        border-radius: 22px;
+        color: white;
+        font-weight: 700;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        box-shadow: 0 5px 18px rgba(255, 107, 53, 0.35);
+        align-self: start;
+        width: fit-content;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    #topMoviesRow .discover-btn:hover,
+    #upComingRow .discover-btn:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow: 0 8px 28px rgba(255, 107, 53, 0.6);
+    }

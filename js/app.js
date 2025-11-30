@@ -2,6 +2,8 @@
 
 loadFeaturedToday();
 loadTopMovie();
+loadUpComingMovies();
+lo
 function searchMovie(){
   const option = document.getElementById("option").value;
   console.log(option);
@@ -132,27 +134,68 @@ function loadTopMovie() {
       if (!container) return;
       container.innerHTML = '';
 
-      // For each entry in movie.json, fetch details by IMDb ID and render a small card
       data.forEach(item1 => {
         if (!item1) return;
         fetch(`https://www.omdbapi.com/?i=${item1}&apikey=afa85712`)
           .then(r => r.json())
           .then(data1 => {
-            const title = data1.Title || item.title || 'Untitled';
-            const year = data1.Year || '';
-            const poster = data1.Poster && data1.Poster !== 'N/A' ? data1.Poster : 'img/placeholder.png';
+          
 
             const html =              
               `<div class="col-lg-4 col-md-6">
                 <div class="movie-card">
                    <div class="imgDiv">
                     <div class="movie-poster">
-                        <img src=${poster}" alt="${title}" class="movie-image">
+                        <img src=${data1.Poster && data1.Poster}" alt="${data1.Title}" class="movie-image">
                     </div>
                     </div>
-                    <div class="text-warning fw-bold text-center">${title}</div>
+                    <div class="text-warning fw-bold text-center">${data1.Year}</div>
                     <div class="movie-info">
-                        <p><strong>Year:</strong> ${year}</p>
+                        <p><strong>Year:</strong> ${data1.Year}</p>
+                        <p><strong>Genre:</strong> Musical / Fantasy</p>
+                        <p><strong>Director:</strong> Jon M. Chu</p>
+                        <p><strong>Stars:</strong> Ariana Grande (Glinda), Cynthia Erivo (Elphaba), Jonathan Bailey (Fiyero), along with Ethan Slater.</p>
+                        <button class="show-more-btn">Show More</button>
+                    </div>
+                </div>
+            </div>`;
+
+            container.insertAdjacentHTML('beforeend', html);
+          })
+          .catch(err => {
+            console.error('Featured item fetch error', err);
+          });
+      });
+    })
+    .catch(err => console.error('Could not load json/movie.json', err));
+}
+
+function loadUpComingMovies() {
+  fetch('json/upComing.json')
+    .then(res => res.json())
+    .then(data => {
+      if (!Array.isArray(data) || data.length === 0) return;
+      const container = document.getElementById('upComingRow');
+      if (!container) return;
+      container.innerHTML = '';
+
+      data.forEach(item1 => {
+        if (!item1) return;
+        fetch(`https://www.omdbapi.com/?i=${item1}&apikey=afa85712`)
+          .then(r => r.json())
+          .then(data1 => {
+            
+            const html =              
+              `<div class="col-lg-4 col-md-6">
+                <div class="movie-card">
+                   <div class="imgDiv">
+                    <div class="movie-poster">
+                        <img src=${data1.Poster && data1.Poster}" alt="${data1.Title}" class="movie-image">
+                    </div>
+                    </div>
+                    <div class="text-warning fw-bold text-center">${data1.Year}</div>
+                    <div class="movie-info">
+                        <p><strong>Year:</strong> ${data1.Year}</p>
                         <p><strong>Genre:</strong> Musical / Fantasy</p>
                         <p><strong>Director:</strong> Jon M. Chu</p>
                         <p><strong>Stars:</strong> Ariana Grande (Glinda), Cynthia Erivo (Elphaba), Jonathan Bailey (Fiyero), along with Ethan Slater.</p>
