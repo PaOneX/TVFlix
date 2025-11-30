@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/bootstrap.css" />
   </head>
-  <body>
+  <body class="bg-black">
     <nav class="navbar-custom bg">
       <div class="container-fluid">
         <div class="row w-100 align-items-center">
@@ -37,7 +37,7 @@
               class="form-control search-input"
               placeholder="Year"
               onkeyup="searchMovie();"
-              style="width: 100px;"
+              style="width: 100px"
             />
           </div>
           <div class="col-auto">
@@ -271,110 +271,15 @@
       </div>
     </div>
 
+    <div class="container mt-5 container-custom">
+      <!-- Feature Today Section -->
+      <div class="section-header">Feature Today</div>
+      <div id="featuresRow" class="row g-4 mb-5"></div>
 
-    <!-- rest section -->
-<div class="container mt-5 container-custom">
-        <!-- Feature Today Section -->
-        <div class="section-header">Feature Today</div>
-        
-        <div class="row g-4 mb-5">
-            <div class="col-lg-4 col-md-6">
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <img src="https://via.placeholder.com/300x450/4a90a4/ffffff?text=Movie+Poster" alt="Movie Poster">
-                    </div>
-                    <div class="movie-info">
-                        <p><strong>Year:</strong> 2025</p>
-                        <p><strong>Genre:</strong> Musical / Fantasy</p>
-                        <p><strong>Director:</strong> Jon M. Chu</p>
-                        <p><strong>Stars:</strong> Ariana Grande (Glinda), Cynthia Erivo (Elphaba), Jonathan Bailey (Fiyero), along with Ethan Slater.</p>
-                        <button class="show-more-btn">Show More</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <img src="https://via.placeholder.com/300x450/4a90a4/ffffff?text=Movie+Poster" alt="Movie Poster">
-                    </div>
-                    <div class="movie-info">
-                        <p><strong>Year:</strong> 2025</p>
-                        <p><strong>Genre:</strong> Musical / Fantasy</p>
-                        <p><strong>Director:</strong> Jon M. Chu</p>
-                        <p><strong>Stars:</strong> Ariana Grande (Glinda), Cynthia Erivo (Elphaba), Jonathan Bailey (Fiyero), along with Ethan Slater.</p>
-                        <button class="show-more-btn">Show More</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <img src="https://via.placeholder.com/300x450/4a90a4/ffffff?text=Movie+Poster" alt="Movie Poster">
-                    </div>
-                    <div class="movie-info">
-                        <p><strong>Year:</strong> 2025</p>
-                        <p><strong>Genre:</strong> Musical / Fantasy</p>
-                        <p><strong>Director:</strong> Jon M. Chu</p>
-                        <p><strong>Stars:</strong> Ariana Grande (Glinda), Cynthia Erivo (Elphaba), Jonathan Bailey (Fiyero), along with Ethan Slater.</p>
-                        <button class="show-more-btn">Show More</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Top 10 This Week Section -->
-        <div class="section-header">Top 10 on This week</div>
-        
-        <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <div class="rank-badge">1</div>
-                        <img src="https://via.placeholder.com/300x450/4a90a4/ffffff?text=Movie+Poster" alt="Movie Poster">
-                    </div>
-                    <div class="movie-info">
-                        <p><strong>Year:</strong> 2025</p>
-                        <p><strong>Genre:</strong> Musical / Fantasy</p>
-                        <p><strong>Director:</strong> Jon M. Chu</p>
-                        <button class="show-more-btn">Show More</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <div class="rank-badge">2</div>
-                        <img src="https://via.placeholder.com/300x450/4a90a4/ffffff?text=Movie+Poster" alt="Movie Poster">
-                    </div>
-                    <div class="movie-info">
-                        <p><strong>Year:</strong> 2025</p>
-                        <p><strong>Genre:</strong> Musical / Fantasy</p>
-                        <p><strong>Director:</strong> Jon M. Chu</p>
-                        <button class="show-more-btn">Show More</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-4 col-md-6">
-                <div class="movie-card">
-                    <div class="movie-poster">
-                        <div class="rank-badge">3</div>
-                        <img src="https://via.placeholder.com/300x450/4a90a4/ffffff?text=Movie+Poster" alt="Movie Poster">
-                    </div>
-                    <div class="movie-info">
-                        <p><strong>Year:</strong> 2025</p>
-                        <p><strong>Genre:</strong> Musical / Fantasy</p>
-                        <p><strong>Director:</strong> Jon M. Chu</p>
-                        <button class="show-more-btn">Show More</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+      <!-- Top 10 This Week Section -->
+      <div class="section-header">Top 10 on This week</div>
+      <div id="topMoviesRow" class="row g-4 mb-5"></div>
     </div>
-
 
     <!-- <button onclick=">Search</button> -->
     <script src="js/app.js"></script>
