@@ -5,11 +5,7 @@ loadTopMovie();
 loadUpComingMovies();
 loadHeroSection();
 
-function discover(title) {
-  console.log(title);
-  
-  document.getElementById("txtMovie").value = title;
-}
+
 function searchMovie() {
   const option = document.getElementById("option").value;
   console.log(option);
@@ -32,7 +28,7 @@ function searchMovie() {
   switch (option) {
     case "title":
       fetch(
-        `http://www.omdbapi.com/?t=${txtMovie}&y=${txtyear}&apikey=afa85712`,
+        `http://www.omdbapi.com/?t=${txtMovie}&y=${txtyear}&apikey=382ab086`,
         requestOptions
       )
         .then((response) => response.json())
@@ -51,8 +47,7 @@ function searchMovie() {
               document.getElementById("txtDate").innerText = result.Released;
               document.getElementById("txtRuntime").innerText = result.Runtime;
               document.getElementById("txtImb").innerText = result.imdbRating;
-              document.getElementById("txtTomato").innerText =
-                result.Ratings[1].Value;
+              document.getElementById("txtTomato").innerText = result.Ratings[0].Value;
               document.getElementById(
                 "txtImg"
               ).innerHTML = ` <img src="${result.Poster}" class="card-img-top" alt="...">`;
@@ -63,7 +58,7 @@ function searchMovie() {
 
     case "imdb":
       fetch(
-        `http://www.omdbapi.com/?i=${txtMovie}&apikey=afa85712`,
+        `http://www.omdbapi.com/?i=${txtMovie}&apikey=382ab086`,
         requestOptions
       )
         .then((response) => response.json())
@@ -94,7 +89,7 @@ function discover(movieTitle) {
   };
 
   fetch(
-    `http://www.omdbapi.com/?t=${encodeURIComponent(movieTitle)}&apikey=afa85712`,
+    `http://www.omdbapi.com/?t=${movieTitle}&apikey=382ab086`,
     requestOptions
   )
     .then((response) => response.json())
@@ -107,11 +102,9 @@ function discover(movieTitle) {
       fetch("components/result/result.html")
         .then((res) => res.text())
         .then((data) => {
-          // Show the results section
           const resultDiv = document.getElementById("resultdiv");
           resultDiv.classList.remove("d-none");
           
-          // Populate the results
           document.getElementById("resultsRow").innerHTML = data;
           document.getElementById("txtTitle").innerText = result.Title;
           document.getElementById("txtPlot").innerText = result.Plot;
@@ -123,7 +116,6 @@ function discover(movieTitle) {
           document.getElementById("txtRuntime").innerText = result.Runtime;
           document.getElementById("txtImb").innerText = result.imdbRating;
           
-          // Handle Rotten Tomatoes rating
           if (result.Ratings && result.Ratings.length > 1) {
             document.getElementById("txtTomato").innerText = result.Ratings[1].Value;
           } else {
@@ -132,8 +124,6 @@ function discover(movieTitle) {
           
           document.getElementById("txtImg").innerHTML = `<img src="${result.Poster}" class="card-img-top" alt="${result.Title}">`;
           
-          // Scroll to results section
-          resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
     })
     .catch((error) => console.error("Error loading movie details:", error));
@@ -151,7 +141,7 @@ function loadHeroSection() {
       // Fetch all movies first
       const fetchPromises = data.map((item) => {
         if (!item) return Promise.resolve(null);
-        return fetch(`https://www.omdbapi.com/?i=${item}&apikey=afa85712`)
+        return fetch(`https://www.omdbapi.com/?i=${item}&apikey=382ab086`)
           .then((r) => r.json())
           .catch((err) => {
             console.error("Featured item fetch error", err);
@@ -162,7 +152,6 @@ function loadHeroSection() {
       Promise.all(fetchPromises).then((movies) => {
         const validMovies = movies.filter(m => m && m.Poster && m.Title);
         
-        // Group movies into sets of 3 for each carousel item
         const moviesPerSlide = 3;
         for (let i = 0; i < validMovies.length; i += moviesPerSlide) {
           const slideMovies = validMovies.slice(i, i + moviesPerSlide);
@@ -179,10 +168,8 @@ function loadHeroSection() {
                     class="movie-image"
                   />
                   <div class="movie-overlay">
-                    <h2 class="movie-title">${movie.Title}</h2>
-                    <div class="movie-info">
+                    <div class="movie-infoNav">
                       <span class="release-badge">${movie.Year}</span>
-                      <span class="platform-text">${movie.Genre || 'N/A'}</span>
                     </div>
                     <button class="discover-btn" onclick="discover('${movie.Title}');" >Discover a Movie</button>
                   </div>
@@ -213,7 +200,7 @@ function loadFeaturedToday() {
       container.innerHTML = "";
       data.forEach((item) => {
         if (!item) return;
-        fetch(`https://www.omdbapi.com/?i=${item}&apikey=afa85712`)
+        fetch(`https://www.omdbapi.com/?i=${item}&apikey=382ab086`)
           .then((r) => r.json())
           .then((data1) => {
             const html = `<div class="col-lg-4 col-md-6">
@@ -235,10 +222,7 @@ function loadFeaturedToday() {
             </div>`;
 
             container.insertAdjacentHTML("beforeend", html);
-          })
-          .catch((err) => {
-            console.error("Featured item fetch error", err);
-          });
+          })          
       });
     })
     .catch((err) => console.error("Could not load json/movie.json", err));
@@ -255,7 +239,7 @@ function loadTopMovie() {
 
       data.forEach((item1) => {
         if (!item1) return;
-        fetch(`https://www.omdbapi.com/?i=${item1}&apikey=afa85712`)
+        fetch(`https://www.omdbapi.com/?i=${item1}&apikey=382ab086`)
           .then((r) => r.json())
           .then((data1) => {
             const html = `<div class="col-lg-4 col-md-6">
@@ -278,9 +262,6 @@ function loadTopMovie() {
 
             container.insertAdjacentHTML("beforeend", html);
           })
-          .catch((err) => {
-            console.error("Featured item fetch error", err);
-          });
       });
     })
     .catch((err) => console.error("Could not load json/movie.json", err));
@@ -297,7 +278,7 @@ function loadUpComingMovies() {
 
       data.forEach((item1) => {
         if (!item1) return;
-        fetch(`https://www.omdbapi.com/?i=${item1}&apikey=afa85712`)
+        fetch(`https://www.omdbapi.com/?i=${item1}&apikey=382ab086`)
           .then((r) => r.json())
           .then((data1) => {
             const html = `<div class="col-lg-4 col-md-6">
@@ -320,9 +301,6 @@ function loadUpComingMovies() {
 
             container.insertAdjacentHTML("beforeend", html);
           })
-          .catch((err) => {
-            console.error("Featured item fetch error", err);
-          });
       });
     })
     .catch((err) => console.error("Could not load json/movie.json", err));
