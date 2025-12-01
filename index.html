@@ -27,11 +27,11 @@
               id="txtMovie"
               class="form-control search-input"
               placeholder="Search movies, actors, genres..."
-              onkeyup="searchMovie();"
+              on="searchMovie();"
             />
           </div>
           <div class="col-auto">
-            <input
+            <input 
               type="text"
               id="txtyear"
               class="form-control search-input"
@@ -75,174 +75,11 @@
             ></button>
           </div>
 
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="row g-4 px-5">
-                <div class="col-md-4">
-                  <div class="movie-card">
-                    <img
-                      src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=800&h=1000&fit=crop"
-                      alt="Movie 1"
-                      class="movie-image"
-                    />
-                    <div class="movie-overlay">
-                      <h2 class="movie-title">It's Florida, Man</h2>
-                      <div class="movie-info">
-                        <span class="release-badge">NOV 28</span>
-                        <span class="platform-text">HBO max</span>
-                      </div>
-                      <button class="discover-btn">Discover a Movie</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="movie-card">
-                    <img
-                      src="https://images.unsplash.com/photo-1511895426328-dc8714191300?w=800&h=1000&fit=crop"
-                      alt="Movie 2"
-                      class="movie-image"
-                    />
-                    <div class="movie-overlay">
-                      <h2 class="movie-title">Family Reunion</h2>
-                      <div class="movie-info">
-                        <span class="release-badge">DEC 15</span>
-                        <span class="platform-text">Peacock</span>
-                      </div>
-                      <button class="discover-btn">Discover a Movie</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="movie-card">
-                    <img
-                      src="https://images.unsplash.com/photo-1482517967863-00e15c9b44be?w=800&h=1000&fit=crop"
-                      alt="Movie 3"
-                      class="movie-image"
-                    />
-                    <div class="movie-overlay">
-                      <h2 class="movie-title">Jingle Bell Heist</h2>
-                      <div class="movie-info">
-                        <span class="release-badge">DEC 22</span>
-                        <span class="platform-text">Netflix</span>
-                      </div>
-                      <button class="discover-btn">Discover a Movie</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div class="carousel-inner" id="navrow">
+            <!-- Carousel items will be dynamically loaded here -->
+          </div>
+           
 
-            <div class="carousel-item">
-              <div class="row g-4 px-5">
-                <div class="col-md-4">
-                  <div class="movie-card">
-                    <img
-                      src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&h=1000&fit=crop"
-                      alt="Movie 4"
-                      class="movie-image"
-                    />
-                    <div class="movie-overlay">
-                      <h2 class="movie-title">Night Hunter</h2>
-                      <div class="movie-info">
-                        <span class="release-badge">JAN 05</span>
-                        <span class="platform-text">Prime Video</span>
-                      </div>
-                      <button class="discover-btn">Discover a Movie</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="movie-card">
-                    <img
-                      src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&h=1000&fit=crop"
-                      alt="Movie 5"
-                      class="movie-image"
-                    />
-                    <div class="movie-overlay">
-                      <h2 class="movie-title">Cinema Dreams</h2>
-                      <div class="movie-info">
-                        <span class="release-badge">JAN 12</span>
-                        <span class="platform-text">Disney+</span>
-                      </div>
-                      <button class="discover-btn">Discover a Movie</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="movie-card">
-                    <img
-                      src="https://images.unsplash.com/photo-1594908900066-3f47337549d8?w=800&h=1000&fit=crop"
-                      alt="Movie 6"
-                      class="movie-image"
-                    />
-                    <div class="movie-overlay">
-                      <h2 class="movie-title">Starlight Journey</h2>
-                      <div class="movie-info">
-                        <span class="release-badge">JAN 19</span>
-                        <span class="platform-text">Hulu</span>
-                      </div>
-                      <button class="discover-btn">Discover a Movie</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="carousel-item">
-              <div class="row g-4 px-5">
-                <div class="col-md-4">
-                  <div class="movie-card">
-                    <img
-                      src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&h=1000&fit=crop"
-                      alt="Movie 7"
-                      class="movie-image"
-                    />
-                    <div class="movie-overlay">
-                      <h2 class="movie-title">Desert Storm</h2>
-                      <div class="movie-info">
-                        <span class="release-badge">JAN 26</span>
-                        <span class="platform-text">Apple TV+</span>
-                      </div>
-                      <button class="discover-btn">Discover a Movie</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="movie-card">
-                    <img
-                      src="https://images.unsplash.com/photo-1518676590629-3dcbd9c5a5c9?w=800&h=1000&fit=crop"
-                      alt="Movie 8"
-                      class="movie-image"
-                    />
-                    <div class="movie-overlay">
-                      <h2 class="movie-title">Ocean's Mystery</h2>
-                      <div class="movie-info">
-                        <span class="release-badge">FEB 02</span>
-                        <span class="platform-text">Paramount+</span>
-                      </div>
-                      <button class="discover-btn">Discover a Movie</button>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-4">
-                  <div class="movie-card">
-                    <img
-                      src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=800&h=1000&fit=crop"
-                      alt="Movie 9"
-                      class="movie-image"
-                    />
-                    <div class="movie-overlay">
-                      <h2 class="movie-title">Urban Legends</h2>
-                      <div class="movie-info">
-                        <span class="release-badge">FEB 09</span>
-                        <span class="platform-text">Max</span>
-                      </div>
-                      <button class="discover-btn">Discover a Movie</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
           <button
