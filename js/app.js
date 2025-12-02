@@ -5,7 +5,6 @@ loadTopMovie();
 loadUpComingMovies();
 loadHeroSection();
 
-
 function searchMovie() {
   const option = document.getElementById("option").value;
   console.log(option);
@@ -28,7 +27,7 @@ function searchMovie() {
   switch (option) {
     case "title":
       fetch(
-        `http://www.omdbapi.com/?t=${txtMovie}&y=${txtyear}&apikey=382ab086`,
+        `http://www.omdbapi.com/?t=${txtMovie}&y=${txtyear}&apikey=afa85712`,
         requestOptions
       )
         .then((response) => response.json())
@@ -40,10 +39,11 @@ function searchMovie() {
               document.getElementById("resultsRow").innerHTML = data;
               document.getElementById("txtTitle").innerText = result.Title;
               document.getElementById("txtPlot").innerText = result.Plot;
+              document.getElementById("txtDirector").innerText = result.Director;
               document.getElementById("txtActors").innerText = result.Actors;
               document.getElementById("txtGenre").innerText = result.Genre;
               document.getElementById("txtYear").innerText = result.Year;
-              document.getElementById("txtRating").innerText = result.Rated;
+              document.getElementById("txtCountry").innerText = result.Country;
               document.getElementById("txtDate").innerText = result.Released;
               document.getElementById("txtRuntime").innerText = result.Runtime;
               document.getElementById("txtImb").innerText = result.imdbRating;
@@ -58,7 +58,7 @@ function searchMovie() {
 
     case "imdb":
       fetch(
-        `http://www.omdbapi.com/?i=${txtMovie}&apikey=382ab086`,
+        `http://www.omdbapi.com/?i=${txtMovie}&apikey=afa85712`,
         requestOptions
       )
         .then((response) => response.json())
@@ -89,7 +89,7 @@ function discover(movieTitle) {
   };
 
   fetch(
-    `http://www.omdbapi.com/?t=${movieTitle}&apikey=382ab086`,
+    `http://www.omdbapi.com/?t=${movieTitle}&apikey=afa85712`,
     requestOptions
   )
     .then((response) => response.json())
@@ -141,7 +141,7 @@ function loadHeroSection() {
       const fetchPromises = data.map(async (item) => {
         if (!item) return Promise.resolve(null);
         try {
-          const r = await fetch(`https://www.omdbapi.com/?t=${item}&apikey=382ab086`);
+          const r = await fetch(`https://www.omdbapi.com/?t=${item}&apikey=afa85712`);
           return await r.json();
         } catch (err) {
           console.error("Featured item fetch error", err);
@@ -208,23 +208,26 @@ function loadFeaturedToday() {
       container.innerHTML = "";
       data.forEach((item) => {
         if (!item) return;
-        fetch(`https://www.omdbapi.com/?i=${item}&apikey=382ab086`)
+        fetch(`https://www.omdbapi.com/?i=${item}&apikey=afa85712`)
           .then((r) => r.json())
           .then((data1) => {
-            const html = `<div data-aos="fade-up-left" data-aos-duration="1000" class="col-lg-4 col-md-6">
+            const html = `<div data-aos="fade-up-left" data-aos-duration="1000" class="col-lg-3 col-md-4 col-sm-6">
                 <div class="movie-card">
-                   <div class="imgDiv">
-                    <div class="movie-poster">
-                        <img src=${data1.Poster}" alt="${data1.Title}" class="movie-image">
-                    </div>
-                    </div>
-                    <div class="text-white p-1 fw-bold text-center">${data1.Title}</div>
+                    <div class="movie-rating">${data1.imdbRating || 'N/A'}</div>
+                    <img src="${data1.Poster}" alt="${data1.Title}" class="movie-poster">
                     <div class="movie-info">
-                        <p><strong>Year:</strong> ${data1.Year}</p>
-                        <p><strong>Genre:</strong> ${data1.Genre} </p>
-                        <p><strong>Director:</strong> ${data1.Director} </p>
-                        <p><strong>Stars:</strong> ${data1.Actors} </p>
-                        <button class="show-more-btn">Show More</button>
+                        <h3 class="movie-title">${data1.Title}</h3>
+                        <div class="movie-meta">
+                            <div class="meta-item"><span>${data1.Year}</span></div>
+                            <div class="meta-item"><span>${data1.Runtime || 'N/A'}</span></div>
+                        </div>
+                        <div class="movie-meta">
+                            <div class="meta-item"><span>${data1.Genre}</span></div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn btn-watch" onclick="discover('${data1.Title}');">Show More</button>
+                            <button class="btn btn-remove"></button>
+                        </div>
                     </div>
                 </div>
             </div>`;
@@ -247,23 +250,26 @@ function loadTopMovie() {
 
       data.forEach((item1) => {
         if (!item1) return;
-        fetch(`https://www.omdbapi.com/?i=${item1}&apikey=382ab086`)
+        fetch(`https://www.omdbapi.com/?i=${item1}&apikey=afa85712`)
           .then((r) => r.json())
           .then((data1) => {
-            const html = `<div data-aos="fade-up" data-aos-duration="1000"  class="col-lg-4 col-md-6">
+            const html = `<div data-aos="fade-up" data-aos-duration="1000" class="col-lg-3 col-md-4 col-sm-6">
                 <div class="movie-card">
-                   <div class="imgDiv">
-                    <div class="movie-poster">
-                        <img src=${data1.Poster}" alt="${data1.Title}" class="movie-image">
-                    </div>
-                    </div>
-                    <div class="text-white p-1 fw-bold text-center">${data1.Title}</div>
+                    <div class="movie-rating">${data1.imdbRating || 'N/A'}</div>
+                    <img src="${data1.Poster}" alt="${data1.Title}" class="movie-poster">
                     <div class="movie-info">
-                        <p><strong>Year:</strong> ${data1.Year}</p>
-                        <p><strong>Genre:</strong> ${data1.Genre} </p>
-                        <p><strong>Director:</strong> ${data1.Director} </p>
-                        <p><strong>Stars:</strong> ${data1.Actors} </p>
-                        <button class="show-more-btn">Show More</button>
+                        <h3 class="movie-title">${data1.Title}</h3>
+                        <div class="movie-meta">
+                            <div class="meta-item"><span>${data1.Year}</span></div>
+                            <div class="meta-item"><span>${data1.Runtime || 'N/A'}</span></div>
+                        </div>
+                        <div class="movie-meta">
+                            <div class="meta-item"><span>${data1.Genre}</span></div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn btn-watch" onclick="discover('${data1.Title}');">Show More</button>
+                            <button class="btn btn-remove"></button>
+                        </div>
                     </div>
                 </div>
             </div>`;
@@ -286,23 +292,26 @@ function loadUpComingMovies() {
 
       data.forEach((item1) => {
         if (!item1) return;
-        fetch(`https://www.omdbapi.com/?i=${item1}&apikey=382ab086`)
+        fetch(`https://www.omdbapi.com/?i=${item1}&apikey=afa85712`)
           .then((r) => r.json())
           .then((data1) => {
-            const html = `<div data-aos="fade-up" data-aos-duration="1000" class="col-lg-4 col-md-6">
+            const html = `<div data-aos="fade-up" data-aos-duration="1000" class="col-lg-3 col-md-4 col-sm-6">
                 <div class="movie-card">
-                   <div class="imgDiv">
-                    <div class="movie-poster">
-                        <img src=${data1.Poster}" alt="${data1.Title}" class="movie-image">
-                    </div>
-                    </div>
-                    <div class="text-white p-1 fw-bold text-center">${data1.Title}</div>
+                    <div class="movie-rating">${data1.imdbRating || 'N/A'}</div>
+                    <img src="${data1.Poster}" alt="${data1.Title}" class="movie-poster">
                     <div class="movie-info">
-                        <p><strong>Year:</strong> ${data1.Year}</p>
-                        <p><strong>Genre:</strong> ${data1.Genre} </p>
-                        <p><strong>Director:</strong> ${data1.Director} </p>
-                        <p><strong>Stars:</strong> ${data1.Actors} </p>
-                        <button class="show-more-btn">Show More</button>
+                        <h3 class="movie-title">${data1.Title}</h3>
+                        <div class="movie-meta">
+                            <div class="meta-item"><span>${data1.Year}</span></div>
+                            <div class="meta-item"><span>${data1.Runtime || 'N/A'}</span></div>
+                        </div>
+                        <div class="movie-meta">
+                            <div class="meta-item"><span>${data1.Genre}</span></div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="btn btn-watch" onclick="discover('${data1.Title}');">Show More</button>
+                            <button class="btn btn-remove"></button>
+                        </div>
                     </div>
                 </div>
             </div>`;

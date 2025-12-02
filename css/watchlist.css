@@ -1,0 +1,221 @@
+
+
+.watchlist-header {
+    background: linear-gradient(135deg,
+            rgba(0, 0, 0, 0.9) 0%,
+            rgba(255, 87, 34, 0.8) 100%),
+        url("../img/home.jpeg");
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0 60px 0;
+    text-align: center;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.watchlist-header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg,
+            rgba(0, 0, 0, 0.8) 0%,
+            rgba(255, 86, 34, 0.411) 100%);
+    z-index: 1;
+}
+
+.watchlist-header>* {
+    position: relative;
+    z-index: 2;
+}
+
+.watchlist-header h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.watchlist-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+.filter-section {
+    margin-bottom: 30px;
+}
+
+.filter-btn {
+    background: #2d2d2d;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    margin: 5px;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: #ff5722;
+    border-color: #ff5722;
+    color: #fff;
+}
+
+.movie-card {
+    background: #2d2d2d;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(255, 87, 34, 0.4);
+}
+
+.movie-poster {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.movie-info {
+    padding: 20px;
+}
+
+.movie-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.movie-meta {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    font-size: 0.9rem;
+    color: #bbb;
+}
+
+.meta-item span {
+    color: #ff5722;
+    font-weight: 600;
+}
+
+.movie-rating {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    color: #ff5722;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.btn-watch {
+    background: linear-gradient(135deg, #ff5722 0%, #ff6f00 100%);
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    flex: 1;
+    transition: transform 0.2s;
+}
+
+.btn-watch:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 87, 34, 0.4);
+}
+
+.btn-remove {
+    background: #444;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.btn-remove:hover {
+    background: #d32f2f;
+    transform: translateY(-2px);
+}
+
+.watched-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #4caf50;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.empty-state-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+.empty-state h3 {
+    color: #999;
+    margin-bottom: 20px;
+}
+
+.btn-browse {
+    background: linear-gradient(135deg, #ff5722 0%, #ff6f00 100%);
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.stats-section {
+    background: #2d2d2d;
+    border-radius: 15px;
+    padding: 30px;
+    margin-bottom: 40px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ff5722;
+}
+
+.stat-label {
+    color: #bbb;
+    font-size: 1rem;
+}
