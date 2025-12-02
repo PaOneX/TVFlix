@@ -31,7 +31,7 @@ function searchMovie() {
   switch (option) {
     case "title":
       fetch(
-        `http://www.omdbapi.com/?t=${txtMovie}&y=${txtyear}&apikey=2fb91d60`,
+        `httpss://www.omdbapi.com/?t=${txtMovie}&y=${txtyear}&apikey=2fb91d60`,
         requestOptions
       )
         .then((response) => response.json())
@@ -62,7 +62,7 @@ function searchMovie() {
 
     case "imdb":
       fetch(
-        `http://www.omdbapi.com/?i=${txtMovie}&apikey=2fb91d60`,
+        `https://www.omdbapi.com/?i=${txtMovie}&apikey=2fb91d60`,
         requestOptions
       )
         .then((response) => response.json())
@@ -93,7 +93,7 @@ function discover(movieTitle) {
   };
 
   fetch(
-    `http://www.omdbapi.com/?t=${movieTitle}&apikey=2fb91d60`,
+    `https://www.omdbapi.com/?t=${movieTitle}&apikey=2fb91d60`,
     requestOptions
   )
     .then((response) => response.json())
@@ -145,7 +145,7 @@ function loadHeroSection() {
       const fetchPromises = data.map(async (item) => {
         if (!item) return Promise.resolve(null);
         try {
-          const r = await fetch(`https://www.omdbapi.com/?t=${item}&apikey=2fb91d60`);
+          const r = await fetch(`httpss://www.omdbapi.com/?t=${item}&apikey=2fb91d60`);
           return await r.json();
         } catch (err) {
           console.error("Featured item fetch error", err);
@@ -212,7 +212,7 @@ function loadFeaturedToday() {
       container.innerHTML = "";
       data.forEach((item) => {
         if (!item) return;
-        fetch(`https://www.omdbapi.com/?i=${item}&apikey=2fb91d60`)
+        fetch(`httpss://www.omdbapi.com/?i=${item}&apikey=2fb91d60`)
           .then((r) => r.json())
           .then((data1) => {
             const html = `<div data-aos="fade-up-left" data-aos-duration="1000" class="col-lg-3 col-md-4 col-sm-6">
@@ -254,7 +254,7 @@ function loadTopMovie() {
 
       data.forEach((item1) => {
         if (!item1) return;
-        fetch(`https://www.omdbapi.com/?i=${item1}&apikey=2fb91d60`)
+        fetch(`httpss://www.omdbapi.com/?i=${item1}&apikey=2fb91d60`)
           .then((r) => r.json())
           .then((data1) => {
             const html = `<div data-aos="fade-up" data-aos-duration="1000" class="col-lg-3 col-md-4 col-sm-6">
@@ -296,7 +296,7 @@ function loadUpComingMovies() {
 
       data.forEach((item1) => {
         if (!item1) return;
-        fetch(`https://www.omdbapi.com/?i=${item1}&apikey=2fb91d60`)
+        fetch(`httpss://www.omdbapi.com/?i=${item1}&apikey=2fb91d60`)
           .then((r) => r.json())
           .then((data1) => {
             const html = `<div data-aos="fade-up" data-aos-duration="1000" class="col-lg-3 col-md-4 col-sm-6">
