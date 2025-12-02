@@ -7,10 +7,14 @@ loadHeroSection();
 
 function searchMovie() {
   const option = document.getElementById("option").value;
-  console.log(option);
+  // console.log(option);
 
   if (!option) {
-    alert("select option");
+    Swal.fire({
+  icon: "error",
+  title: "select option...",
+  text: "Please select a search option before proceeding.",
+});
     return;
   }
 
