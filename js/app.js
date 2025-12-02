@@ -95,13 +95,11 @@ function discover(movieTitle) {
         alert("Movie not found!");
         return;
       }
-      
       fetch("components/result/result.html")
         .then((res) => res.text())
         .then((data) => {
           const resultDiv = document.getElementById("resultdiv");
           resultDiv.classList.remove("d-none");          
-           document.getElementById("resultdiv").classList.toggle("d-none");
               document.getElementById("resultsRow").innerHTML = data;
               document.getElementById("txtTitle").innerText = result.Title;
               document.getElementById("txtPlot").innerText = result.Plot;
