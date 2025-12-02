@@ -111,7 +111,7 @@ function discover(movieTitle) {
           document.getElementById("txtActors").innerText = result.Actors;
           document.getElementById("txtGenre").innerText = result.Genre;
           document.getElementById("txtYear").innerText = result.Year;
-          document.getElementById("txtRating").innerText = result.Rated;
+              document.getElementById("txtCountry").innerText = result.Country;
           document.getElementById("txtDate").innerText = result.Released;
           document.getElementById("txtRuntime").innerText = result.Runtime;
           document.getElementById("txtImb").innerText = result.imdbRating;
