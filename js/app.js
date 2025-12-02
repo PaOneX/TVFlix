@@ -145,7 +145,7 @@ function loadHeroSection() {
       const fetchPromises = data.map(async (item) => {
         if (!item) return Promise.resolve(null);
         try {
-          const r = await fetch(`httpss://www.omdbapi.com/?t=${item}&apikey=2fb91d60`);
+          const r = await fetch(`https://www.omdbapi.com/?t=${item}&apikey=2fb91d60`);
           return await r.json();
         } catch (err) {
           console.error("Featured item fetch error", err);
