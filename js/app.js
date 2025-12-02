@@ -130,7 +130,7 @@ function discover(movieTitle) {
 }
 
 function loadHeroSection() {
-  fetch("json/movie.json")
+  fetch("json/carouselMovie.json")
     .then((res) => res.json())
     .then((data) => {
       if (!Array.isArray(data) || data.length === 0) return;
@@ -138,15 +138,15 @@ function loadHeroSection() {
       if (!container) return;
       container.innerHTML = "";
       
-      // Fetch all movies first
-      const fetchPromises = data.map((item) => {
+      const fetchPromises = data.map(async (item) => {
         if (!item) return Promise.resolve(null);
-        return fetch(`https://www.omdbapi.com/?i=${item}&apikey=382ab086`)
-          .then((r) => r.json())
-          .catch((err) => {
-            console.error("Featured item fetch error", err);
-            return null;
-          });
+        try {
+          const r = await fetch(`https://www.omdbapi.com/?t=${item}&apikey=382ab086`);
+          return await r.json();
+        } catch (err) {
+          console.error("Featured item fetch error", err);
+          return null;
+        }
       });
       
       Promise.all(fetchPromises).then((movies) => {
@@ -186,6 +186,14 @@ function loadHeroSection() {
           
           container.insertAdjacentHTML("beforeend", carouselItem);
         }
+        
+        const carouselElement = document.getElementById('movieCarousel');
+        if (carouselElement && typeof bootstrap !== 'undefined') {
+          const carousel = new bootstrap.Carousel(carouselElement, {
+            interval: 5000,
+            ride: 'carousel'
+          });
+        }
       });
     })
     .catch((err) => console.error("Could not load json/movie.json", err));
@@ -203,7 +211,7 @@ function loadFeaturedToday() {
         fetch(`https://www.omdbapi.com/?i=${item}&apikey=382ab086`)
           .then((r) => r.json())
           .then((data1) => {
-            const html = `<div class="col-lg-4 col-md-6">
+            const html = `<div data-aos="fade-up-left" data-aos-duration="1000" class="col-lg-4 col-md-6">
                 <div class="movie-card">
                    <div class="imgDiv">
                     <div class="movie-poster">
@@ -242,7 +250,7 @@ function loadTopMovie() {
         fetch(`https://www.omdbapi.com/?i=${item1}&apikey=382ab086`)
           .then((r) => r.json())
           .then((data1) => {
-            const html = `<div class="col-lg-4 col-md-6">
+            const html = `<div data-aos="fade-up" data-aos-duration="1000"  class="col-lg-4 col-md-6">
                 <div class="movie-card">
                    <div class="imgDiv">
                     <div class="movie-poster">
@@ -281,7 +289,7 @@ function loadUpComingMovies() {
         fetch(`https://www.omdbapi.com/?i=${item1}&apikey=382ab086`)
           .then((r) => r.json())
           .then((data1) => {
-            const html = `<div class="col-lg-4 col-md-6">
+            const html = `<div data-aos="fade-up" data-aos-duration="1000" class="col-lg-4 col-md-6">
                 <div class="movie-card">
                    <div class="imgDiv">
                     <div class="movie-poster">
