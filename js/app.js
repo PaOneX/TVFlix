@@ -212,7 +212,7 @@ function loadFeaturedToday() {
       container.innerHTML = "";
       data.forEach((item) => {
         if (!item) return;
-        fetch(`httpss://www.omdbapi.com/?i=${item}&apikey=2fb91d60`)
+        fetch(`https://www.omdbapi.com/?i=${item}&apikey=2fb91d60`)
           .then((r) => r.json())
           .then((data1) => {
             const html = `<div data-aos="fade-up-left" data-aos-duration="1000" class="col-lg-3 col-md-4 col-sm-6">
@@ -254,7 +254,7 @@ function loadTopMovie() {
 
       data.forEach((item1) => {
         if (!item1) return;
-        fetch(`httpss://www.omdbapi.com/?i=${item1}&apikey=2fb91d60`)
+        fetch(`https://www.omdbapi.com/?i=${item1}&apikey=2fb91d60`)
           .then((r) => r.json())
           .then((data1) => {
             const html = `<div data-aos="fade-up" data-aos-duration="1000" class="col-lg-3 col-md-4 col-sm-6">
@@ -296,7 +296,7 @@ function loadUpComingMovies() {
 
       data.forEach((item1) => {
         if (!item1) return;
-        fetch(`httpss://www.omdbapi.com/?i=${item1}&apikey=2fb91d60`)
+        fetch(`https://www.omdbapi.com/?i=${item1}&apikey=2fb91d60`)
           .then((r) => r.json())
           .then((data1) => {
             const html = `<div data-aos="fade-up" data-aos-duration="1000" class="col-lg-3 col-md-4 col-sm-6">
