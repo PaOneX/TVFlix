@@ -1,5 +1,4 @@
 // console.log(option)
-
 loadFeaturedToday();
 loadTopMovie();
 loadUpComingMovies();
@@ -17,9 +16,7 @@ function searchMovie() {
 });
     return;
   }
-
   // console.log("Hello, TVFlix!");
-
   const txtMovie = document.getElementById("txtMovie").value;
   const txtyear = document.getElementById("txtyear").value;
 
@@ -61,10 +58,7 @@ function searchMovie() {
       break;
 
     case "imdb":
-      fetch(
-        `https://www.omdbapi.com/?i=${txtMovie}&apikey=2fb91d60`,
-        requestOptions
-      )
+      fetch(`https://www.omdbapi.com/?i=${txtMovie}&apikey=2fb91d60`,requestOptions)
         .then((response) => response.json())
         .then((result) => {
           fetch("components/result/result.html")
@@ -74,9 +68,7 @@ function searchMovie() {
               document.getElementById("resultsRow").innerHTML = data;
               document.getElementById("txtTitle").innerText = result.Title;
               document.getElementById("txtPlot").innerText = result.Plot;
-              document.getElementById(
-                "txtImg"
-              ).innerHTML = ` <img src="${result.Poster}" class="card-img-top" alt="...">`;
+              document.getElementById("txtImg").innerHTML = ` <img src="${result.Poster}" class="card-img-top" alt="...">`;
             });
         })
         .catch((error) => console.error(error));
@@ -87,15 +79,9 @@ function searchMovie() {
 function discover(movieTitle) {
   if (!movieTitle) return;
   
-  const requestOptions = {
-    method: "GET",
-    redirect: "follow",
-  };
+  const requestOptions = {method: "GET",redirect: "follow",};
 
-  fetch(
-    `https://www.omdbapi.com/?t=${movieTitle}&apikey=2fb91d60`,
-    requestOptions
-  )
+  fetch(`https://www.omdbapi.com/?t=${movieTitle}&apikey=2fb91d60`,requestOptions)
     .then((response) => response.json())
     .then((result) => {
       if (result.Response === "False") {
@@ -107,15 +93,14 @@ function discover(movieTitle) {
         .then((res) => res.text())
         .then((data) => {
           const resultDiv = document.getElementById("resultdiv");
-          resultDiv.classList.remove("d-none");
-          
+          resultDiv.classList.remove("d-none");          
           document.getElementById("resultsRow").innerHTML = data;
           document.getElementById("txtTitle").innerText = result.Title;
           document.getElementById("txtPlot").innerText = result.Plot;
           document.getElementById("txtActors").innerText = result.Actors;
           document.getElementById("txtGenre").innerText = result.Genre;
           document.getElementById("txtYear").innerText = result.Year;
-              document.getElementById("txtCountry").innerText = result.Country;
+          document.getElementById("txtCountry").innerText = result.Country;
           document.getElementById("txtDate").innerText = result.Released;
           document.getElementById("txtRuntime").innerText = result.Runtime;
           document.getElementById("txtImb").innerText = result.imdbRating;
@@ -124,10 +109,8 @@ function discover(movieTitle) {
             document.getElementById("txtTomato").innerText = result.Ratings[1].Value;
           } else {
             document.getElementById("txtTomato").innerText = "N/A";
-          }
-          
+          }          
           document.getElementById("txtImg").innerHTML = `<img src="${result.Poster}" class="card-img-top" alt="${result.Title}">`;
-          
         });
     })
     .catch((error) => console.error("Error loading movie details:", error));
