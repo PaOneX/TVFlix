@@ -31,7 +31,7 @@ function searchMovie() {
   switch (option) {
     case "title":
       fetch(
-        `httpss://www.omdbapi.com/?t=${txtMovie}&y=${txtyear}&apikey=2fb91d60`,
+        `https://www.omdbapi.com/?t=${txtMovie}&y=${txtyear}&apikey=2fb91d60`,
         requestOptions
       )
         .then((response) => response.json())
