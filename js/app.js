@@ -36,7 +36,7 @@ function searchMovie() {
           fetch("components/result/result.html")
             .then((res) => res.text())
             .then((data) => {
-              document.getElementById("resultdiv").classList.toggle("d-none");
+              document.getElementById("resultdiv").classList.remove("d-none");
               document.getElementById("resultsRow").innerHTML = data;
               document.getElementById("txtTitle").innerText = result.Title;
               document.getElementById("txtPlot").innerText = result.Plot;
@@ -49,9 +49,7 @@ function searchMovie() {
               document.getElementById("txtRuntime").innerText = result.Runtime;
               document.getElementById("txtImb").innerText = result.imdbRating;
               document.getElementById("txtTomato").innerText = result.Ratings[0].Value;
-              document.getElementById(
-                "txtImg"
-              ).innerHTML = ` <img src="${result.Poster}" class="card-img-top" alt="...">`;
+              document.getElementById("txtImg").innerHTML = ` <img src="${result.Poster}" class="card-img-top" alt="...">`;           
             });
         })
         .catch((error) => console.error(error));
@@ -64,11 +62,20 @@ function searchMovie() {
           fetch("components/result/result.html")
             .then((res) => res.text())
             .then((data) => {
-              document.getElementById("resultdiv").classList.toggle("d-none");
+               document.getElementById("resultdiv").classList.toggle("d-none");
               document.getElementById("resultsRow").innerHTML = data;
               document.getElementById("txtTitle").innerText = result.Title;
               document.getElementById("txtPlot").innerText = result.Plot;
-              document.getElementById("txtImg").innerHTML = ` <img src="${result.Poster}" class="card-img-top" alt="...">`;
+              document.getElementById("txtDirector").innerText = result.Director;
+              document.getElementById("txtActors").innerText = result.Actors;
+              document.getElementById("txtGenre").innerText = result.Genre;
+              document.getElementById("txtYear").innerText = result.Year;
+              document.getElementById("txtCountry").innerText = result.Country;
+              document.getElementById("txtDate").innerText = result.Released;
+              document.getElementById("txtRuntime").innerText = result.Runtime;
+              document.getElementById("txtImb").innerText = result.imdbRating;
+              document.getElementById("txtTomato").innerText = result.Ratings[0].Value;
+              document.getElementById("txtImg").innerHTML = ` <img src="${result.Poster}" class="card-img-top" alt="...">`;           
             });
         })
         .catch((error) => console.error(error));
@@ -94,16 +101,19 @@ function discover(movieTitle) {
         .then((data) => {
           const resultDiv = document.getElementById("resultdiv");
           resultDiv.classList.remove("d-none");          
-          document.getElementById("resultsRow").innerHTML = data;
-          document.getElementById("txtTitle").innerText = result.Title;
-          document.getElementById("txtPlot").innerText = result.Plot;
-          document.getElementById("txtActors").innerText = result.Actors;
-          document.getElementById("txtGenre").innerText = result.Genre;
-          document.getElementById("txtYear").innerText = result.Year;
-          document.getElementById("txtCountry").innerText = result.Country;
-          document.getElementById("txtDate").innerText = result.Released;
-          document.getElementById("txtRuntime").innerText = result.Runtime;
-          document.getElementById("txtImb").innerText = result.imdbRating;
+           document.getElementById("resultdiv").classList.toggle("d-none");
+              document.getElementById("resultsRow").innerHTML = data;
+              document.getElementById("txtTitle").innerText = result.Title;
+              document.getElementById("txtPlot").innerText = result.Plot;
+              document.getElementById("txtDirector").innerText = result.Director;
+              document.getElementById("txtActors").innerText = result.Actors;
+              document.getElementById("txtGenre").innerText = result.Genre;
+              document.getElementById("txtYear").innerText = result.Year;
+              document.getElementById("txtCountry").innerText = result.Country;
+              document.getElementById("txtDate").innerText = result.Released;
+              document.getElementById("txtRuntime").innerText = result.Runtime;
+              document.getElementById("txtImb").innerText = result.imdbRating;
+             
           
           if (result.Ratings && result.Ratings.length > 1) {
             document.getElementById("txtTomato").innerText = result.Ratings[1].Value;
