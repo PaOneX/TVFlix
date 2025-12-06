@@ -19,7 +19,7 @@
         
         .login-left {
             background: linear-gradient(135deg, rgba(0, 0, 0, 0.397) 0%, rgba(255, 86, 34, 0.26) 100%), 
-                        url('../../img/home.jpeg');
+                        url('../img/home.jpeg');
             background-size: cover;
             background-position: center;
             padding: 60px 40px;
