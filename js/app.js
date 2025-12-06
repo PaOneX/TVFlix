@@ -3,6 +3,12 @@ loadFeaturedToday();
 loadTopMovie();
 loadUpComingMovies();
 loadHeroSection();
+function scroll() {
+  const resultDiv = document.getElementById("resultdiv");
+  if (resultDiv) {
+    resultDiv.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
 
 function searchMovie() {
   const option = document.getElementById("option").value;
@@ -119,6 +125,10 @@ function discover(movieTitle) {
             document.getElementById("txtTomato").innerText = "N/A";
           }          
           document.getElementById("txtImg").innerHTML = `<img src="${result.Poster}" class="card-img-top" alt="${result.Title}">`;
+          
+          setTimeout(() => {
+            scroll();
+          }, 100);
         });
     })
     .catch((error) => console.error("Error loading movie details:", error));
@@ -166,7 +176,7 @@ function loadHeroSection() {
                     <div class="movie-infoNav">
                       <span class="release-badge">${movie.Year}</span>
                     </div>
-                    <button class="discover-btn" onclick="discover('${movie.Title}');" >Discover a Movie</button>
+                    <button class="discover-btn" onclick="discover('${movie.Title}'); scroll();" >Discover a Movie</button>
                   </div>
                 </div>
               </div>`;
@@ -220,7 +230,7 @@ function loadFeaturedToday() {
                             <div class="meta-item"><span>${data1.Genre}</span></div>
                         </div>
                         <div class="action-buttons">
-                            <button class="btn btn-watch" onclick="discover('${data1.Title}');">Show More</button>
+                            <button class="btn btn-watch" onclick="discover('${data1.Title}'); scroll();">Show More</button>
                             <button class="btn btn-remove"></button>
                         </div>
                     </div>
@@ -262,7 +272,7 @@ function loadTopMovie() {
                             <div class="meta-item"><span>${data1.Genre}</span></div>
                         </div>
                         <div class="action-buttons">
-                            <button class="btn btn-watch" onclick="discover('${data1.Title}');">Show More</button>
+                            <button class="btn btn-watch" onclick="discover('${data1.Title}'); scroll();">Show More</button>
                             <button class="btn btn-remove"></button>
                         </div>
                     </div>
@@ -304,7 +314,7 @@ function loadUpComingMovies() {
                             <div class="meta-item"><span>${data1.Genre}</span></div>
                         </div>
                         <div class="action-buttons">
-                            <button class="btn btn-watch" onclick="discover('${data1.Title}');">Show More</button>
+                            <button class="btn btn-watch" onclick="discover('${data1.Title}'); scroll();">Show More</button>
                             <button class="btn btn-remove"></button>
                         </div>
                     </div>
